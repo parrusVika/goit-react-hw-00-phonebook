@@ -35,7 +35,7 @@ export class SignUpForm extends Component {
           />
         </label>
 
-        <button type="submit">Sign up as {login}</button>
+        <button type="submit">Sign up {login}</button>
       </form>
     );
   }
