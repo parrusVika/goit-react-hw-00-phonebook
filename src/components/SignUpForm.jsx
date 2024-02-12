@@ -1,47 +1,47 @@
-import React, { Component } from 'react';
-// import { ReactDOM } from 'react';
+// import React, { Component } from 'react';
+// // import { ReactDOM } from 'react';
 
-export class SignUpForm extends Component {
-  state = {
-    login: '',
-  };
+// export class SignUpForm extends Component {
+//   state = {
+//     login: '',
+//   };
 
-  // Відповідає за оновлення стану
-  handleChange = e => {
-    this.setState({ login: e.target.value });
-  };
+//   // Відповідає за оновлення стану
+//   handleChange = e => {
+//     this.setState({ login: e.target.value });
+//   };
 
-  // Викликається під час відправлення форми
-  handleSubmit = evt => {
-    evt.preventDefault();
-    console.log(`Signed up as: ${this.state.login}`);
+//   // Викликається під час відправлення форми
+//   handleSubmit = evt => {
+//     evt.preventDefault();
+//     console.log(`Signed up as: ${this.state.login}`);
 
-    // Проп, який передається формі для виклику під час сабміту
-    this.props.onSubmit({ ...this.state });
-  };
+//     // Проп, який передається формі для виклику під час сабміту
+//     this.props.onSubmit({ ...this.state });
+//   };
 
-  render() {
-    const { login } = this.state;
+//   render() {
+//     const { login } = this.state;
 
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input
-            type="text"
-            placeholder="Enter login"
-            value={login}
-            onChange={this.handleChange}
-          />
-        </label>
+//     return (
+//       <form onSubmit={this.handleSubmit}>
+//         <label>
+//           Name
+//           <input
+//             type="text"
+//             placeholder="Enter login"
+//             value={login}
+//             onChange={this.handleChange}
+//           />
+//         </label>
 
-        <button type="submit">Sign up {login}</button>
-      </form>
-    );
-  }
-}
+//         <button type="submit">Sign up {login}</button>
+//       </form>
+//     );
+//   }
+// }
 
-// ReactDOM.render(
-//   <SignUpForm onSubmit={values => console.log(values)} />,
-//   document.getElementById('root')
-// );
+// // ReactDOM.render(
+// //   <SignUpForm onSubmit={values => console.log(values)} />,
+// //   document.getElementById('root')
+// // );

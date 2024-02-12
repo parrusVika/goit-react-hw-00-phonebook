@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
-import { SignUpForm } from 'components/SignUpForm';
+import axios from 'axios';
+
+axios.defaults.baseURL = '<https://hn.algolia.com/api/v1>';
+
+const ArticleList = ({ articles }) => (
+  <ul>
+    {articles.map(({ objectID, url, title }) => (
+      <li key={objectID}>
+        <a href={url} target="_blank" rel="noreferrer noopener">
+          {title}
+        </a>
+      </li>
+    ))}
+  </ul>
+);
 
 export class App extends Component {
   state = {
-    inputValue: '',
+    articles: [],
   };
 
-  // handleChange = evt => {
-  //   this.setState({ inputValue: evt.target.value });
-  // };
+  async componentDidMount() {
+    const response = await axios.get('/search?query=react');
+    this.setState({ articles: response.data.hits });
+  }
 
   render() {
-    const { inputValue } = this.state;
-    return <SignUpForm onSubmit={inputValue} />;
+    const { articles } = this.state;
+    return (
+      <div>
+        articles.length > 0 ? <ArticleList articles={articles} /> : null
+      </div>
+    );
   }
 }
